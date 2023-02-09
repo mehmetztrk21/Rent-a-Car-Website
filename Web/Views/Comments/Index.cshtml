@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Entity.Comments>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success mb-5" id="message" style="text-align:center">@TempData["success"]</div>
+}
+<h1>Müşteri Yorumları</h1>
+
+<p>
+    <a asp-action="Create">Yeni</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info btn-block btn-sm">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-block btn-sm">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

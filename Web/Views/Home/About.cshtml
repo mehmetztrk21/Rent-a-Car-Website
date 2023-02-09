@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<!-- Page Content -->
+<div class="page-heading about-heading header-text" style="background-image: url(/tema/assets/images/heading-1-1920x500.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Hakkımızda</h4>
+                    <h2>TAÇ Rent <small style="text-transform:lowercase">a</small> Car</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="best-features about-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Yeni Nesil Araç Kiralama TAÇ Rent a Car</h2>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="right-image">
+                    <img src="~/tema/assets/images/Car.jpg" style="height:50%;" alt="">
+                </div>
+                <div class="mt-4">
+                    <hr /><br />
+                    <ul class="social-icons" style="text-align:center">
+                        <li><a href="tel:@Model.general.tel1"><i class="fa fa-phone"></i></a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=@Model.general.tel2" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                        <li><a href="mailto:@Model.general.email"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="col-md-6">
+                <div class="left-content">
+                    <h4>Uzman ekibimiz ile hizmetinizdeyiz.</h4>
+                       <p>@Html.Raw(Model.general.description)</p>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="team-members">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Provizyonsuz ve uygun fiyata araç kiralayın.</h2>
+                </div>
+
+                <h5>Provizyonsuz ve özel şoför destekli yeni nesil Rent a Car</h5>
+                  <p>
+                      @Html.Raw(Model.general.provizyon_desc)
+                  </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        window.onload = function () {
+            document.getElementById("about").className = "nav-link active";
+        }
+</script>

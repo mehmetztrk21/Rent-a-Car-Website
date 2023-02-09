@@ -1,0 +1,209 @@
+﻿@model IndexModel
+@{
+    Layout = "_HomeLayout";
+}
+
+
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+
+<div class="banner header-text">
+    <div class="owl-banner owl-carousel">
+        <div class="banner-item-01">
+            <div class="text-content">
+                @if (TempData["success"] != null)
+                {
+                    <div class="alert alert-success mb-5" id="message" style="text-align:center;">@TempData["success"]</div>
+                }
+                <h4>Aracını Bugün Bul !</h4>
+                <h2>Provizyonsuz araç kiralama</h2>
+            </div>
+        </div>
+        <div class="banner-item-02">
+            <div class="text-content">
+                <h4>Memnuniyet Garantisi</h4>
+                <h2>Kaliteli <small>ve</small> Hızlı Hizmet</h2>
+            </div>
+        </div>
+        <div class="banner-item-03">
+            <div class="text-content">
+                <h4>ANAHTAR TESLİM</h4>
+                <h2>öZEL şOFÖR Desteği</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Ends Here -->
+
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Öne Çıkan Araçlar</h2>
+                    <a href="/home/cars">Daha Fazla <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+
+            @foreach (var item in Model.Cars)
+            {
+                @if (item.Anasayfa)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-item">
+                            <a href="/home/carDetails/@item.Id"><img src="~/tema/assets/images/@item.image" alt=""></a>
+                            <div class="down-content">
+                                <a href="/home/carDetails/@item.Id"><h4>@item.name</h4></a>
+
+                                <h6><i class="fas fa-lira-sign"></i> @item.weekly_price <small>/ Hafta</small></h6>
+
+                                <!--  <p>190 hp &nbsp;/&nbsp; Petrol &nbsp;/&nbsp; 2008 &nbsp;/&nbsp; Used vehicle</p>  -->
+
+                                <small>
+                                    <strong title="Author"><i class="fa fa-dashboard"></i> @item.km km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Author"><i class="fa fa-cube"></i> @item.model</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Views"><i class="fa fa-cog"></i> @item.type</strong>
+                                </small>
+
+                                <p class="pt-3" style="text-align:center;">
+                                    <a class="btn btn-sm btn-danger mr-2" href="https://api.whatsapp.com/send?phone=@Model.general.tel2&text=@item.name%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" style="color:black;">Rezerve</a>
+                                    <a class="btn btn-sm btn-info" href="/home/carDetails/@item.Id" style="color:black;">İncele</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+
+        </div>
+    </div>
+</div>
+
+<div class="best-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Hakkımızda</h2>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="left-content">
+                    <p>@Html.Raw(Model.general.description.Substring(0, 400)) ...</p>
+                    <a href="/home/about" class="filled-button">Daha Fazla</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="right-image">
+                    <img src="~/tema/assets/images/about-1-570x350.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services" style="background-image: url(/tema/assets/images/other-image-fullscren-1-1920x900.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Son Eklenen Araçlar</h2>
+
+                    <a href="/home/cars">Daha Fazla <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <a href="/home/carDetails/@Model.Cars[Model.Cars.Count - 1].Id" class="services-item-image"><img src="~/tema/assets/images/blog-1-370x270.jpg" class="img-fluid" alt=""></a>
+
+                    <div class="down-content">
+                        <h4><a href="/home/carDetails/@Model.Cars[Model.Cars.Count - 1].Id">@Model.Cars[Model.Cars.Count - 1].name</a></h4>
+
+                        <p style="margin: 0;"> @Model.Cars[Model.Cars.Count - 1].model Model &nbsp;&nbsp;|&nbsp;&nbsp;<i class="fas fa-lira-sign"></i> @Model.Cars[Model.Cars.Count - 1].weekly_price &nbsp;&nbsp;|&nbsp;&nbsp; @Model.Cars[Model.Cars.Count - 1].type</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <a href="/home/carDetails/@Model.Cars[Model.Cars.Count - 2].Id" class="services-item-image"><img src="~/tema/assets/images/blog-2-370x270.jpg" class="img-fluid" alt=""></a>
+
+                    <div class="down-content">
+                        <h4><a href="/home/carDetails/@Model.Cars[Model.Cars.Count-2].Id">@Model.Cars[Model.Cars.Count - 2].name</a></h4>
+
+                        <p style="margin: 0;"> @Model.Cars[Model.Cars.Count - 2].model Model &nbsp;&nbsp;|&nbsp;&nbsp;<i class="fas fa-lira-sign"></i> @Model.Cars[Model.Cars.Count - 2].weekly_price &nbsp;&nbsp;|&nbsp;&nbsp; @Model.Cars[Model.Cars.Count - 2].type</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <a href="/home/carDetails/@Model.Cars[Model.Cars.Count-3].Id" class="services-item-image"><img src="~/tema/assets/images/blog-3-370x270.jpg" class="img-fluid" alt=""></a>
+
+                    <div class="down-content">
+                        <h4><a href="/home/carDetails/@Model.Cars[Model.Cars.Count-3].Id">@Model.Cars[Model.Cars.Count - 3].name</a></h4>
+
+                        <p style="margin: 0;"> @Model.Cars[Model.Cars.Count - 3].model Model &nbsp;&nbsp;|&nbsp;&nbsp;<i class="fas fa-lira-sign"></i> @Model.Cars[Model.Cars.Count - 3].weekly_price &nbsp;&nbsp;|&nbsp;&nbsp; @Model.Cars[Model.Cars.Count - 3].type</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="happy-clients">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Mutlu Müşterilerimiz</h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="owl-clients owl-carousel text-center">
+                    @foreach (var item in Model.Comments)
+                    {
+                        <div class="service-item">
+                            <div class="icon">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="down-content">
+                                <h4>@item.Name</h4>
+                                <p class="n-m"><em>@item.Comment</em></p>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4>Fiyat teklifi için bizimle iletişime geçin.</h4>
+                            <p>Araçlar hakkında aklınıza takılan bütün soruları WhatsApp hattımızdan 7/24 bize iletebilirsiniz.</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 text-right">
+                            <a href="https://api.whatsapp.com/send?phone=@Model.general.tel2&text=Merhaba%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="filled-button">Şimdi Yaz</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        window.onload = function () {
+            document.getElementById("home").className = "nav-link active";
+        }
+</script>

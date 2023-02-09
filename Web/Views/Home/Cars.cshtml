@@ -1,0 +1,127 @@
+﻿@model IndexModel
+@{
+    Layout = "_HomeLayout";
+}
+
+
+<!-- Page Content -->
+<div class="page-heading about-heading header-text" style="background-image: url(~/tema/assets/images/heading-6-1920x500.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h2>Araçlar</h2>
+                    <h4 class="h5 mt-3">Her zevke uygun kaliteli araçlar</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="contact-form">
+                    <form action="#">
+                        <h3 style="text-align:center;">Kategoriler</h3>
+                        <hr />
+                        <ul class="list-group">
+                            @if (TempData["category"] == null)
+                            {
+                                <a href="/home/Cars" style="color:black;">
+                                <li class="list-group-item list-group-item-action active">Tüm Araçlar</li></a>
+                            }
+                            else
+                            {
+                                <a href="/home/Cars" style="color:black;">
+                                <li class="list-group-item list-group-item-action">Tüm Araçlar</li></a>
+                            }
+
+                            @foreach (var item in Model.Categories)
+                            {
+                                if (Model.category_control == item.Id && TempData["category"] != null)
+                                {
+                                    <a href="/home/Cars/@item.Id" style="color:black;">
+                                    <li class="list-group-item list-group-item-action active">@item.name</li></a>
+                                }
+                                else
+                                {
+                                    <a href="/home/Cars/@item.Id" style="color:black;">
+                                    <li class="list-group-item list-group-item-action">@item.name</li></a>
+                                }
+
+                            }
+                        </ul>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="row">
+                    @if (Model.Cars.Count != 0)
+                    {
+                        @foreach (var item in Model.Cars)
+                        {
+                            <div class="col-md-6">
+                                <div class="product-item">
+                                    <a href="/home/carDetails/@item.Id"><img src="~/tema/assets/images/@item.image" alt=""></a>
+                                    <div class="down-content">
+                                        <a href="car-details.html"><h4>@item.name</h4></a>
+
+                                        <h6><i class="fas fa-lira-sign"></i> @item.weekly_price <small>/ Hafta</small></h6>
+
+                                        <!--  <p>190 hp &nbsp;/&nbsp; Petrol &nbsp;/&nbsp; 2008 &nbsp;/&nbsp; Used vehicle</p>  -->
+
+                                        <small>
+                                            <strong title="Author"><i class="fa fa-dashboard"></i> @item.km km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <strong title="Author"><i class="fa fa-cube"></i> @item.model</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <strong title="Views"><i class="fa fa-cog"></i> @item.type</strong>
+                                        </small>
+
+                                        <p class="pt-3" style="text-align:center;">
+                                            <a class="btn btn-sm btn-danger mr-2" href="https://api.whatsapp.com/send?phone=@Model.general.tel2&text=@item.name%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" style="color:black;">Rezerve</a>
+                                            <a class="btn btn-sm btn-info" href="/home/carDetails/@item.Id" style="color:black;">İncele</a>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <!--
+                        <div class="col-md-12">
+                            <ul class="pages">
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </div>
+                        -->
+                    }
+                    else
+                    {
+                        <div class="col-md-12 mt-5 ml-5">
+                            <div class="container mt-5">
+                                <p style="text-align:center;">
+                                    <h4 class="text-warning">Bu kategoriye kayıtlı araç bulunamadı.</h4>
+                                </p>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        document.getElementById("cars").className = "nav-link active";
+    }
+</script>

@@ -1,0 +1,110 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Türkiye'nin her noktasından provizyonsuz araç kiralayın. Özel şoför desteği ile aracınızı ayağınıza kadar getirelim. Yılların vermiş olduğu tecrübe memnuniyet garantili araç kiralama hizmetinden faydalanın. Yeni nesil Provizyonsuz Rent a Car deneyimini yaşayın." />
+    <meta name="keywords" content="Kiralık Araba, araba kiralama, araç kiralama, oto kiralama, rent a car, kirallık araba, kiralık araç, kiralık oto, rentalcars, rental cars" />
+    <title>Provizyonsuz Ucuz Araç Kiralama | TAÇ Rent a Car</title>
+    <link rel="icon" href="~/tema/assets/images/icon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <title>@Model.general.Name| Araç Kiralama</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/tema/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="~/tema/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/tema/assets/css/style.css">
+    <link rel="stylesheet" href="~/tema/assets/css/owl.css">
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- Header -->
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/"><h2>@Model.general.Name <em>lİFE</em></h2></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/" id="home">
+                                Ana Sayfa
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="/Home/Cars" id="cars">Araçlar</a></li>
+                        <!--
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="blog.html">Blog</a>
+                                <a class="dropdown-item" href="team.html">Team</a>
+                                <a class="dropdown-item" href="testimonials.html">Testimonials</a>
+                                <a class="dropdown-item" href="terms.html">Terms</a>
+                            </div>
+                        </li>
+                            -->
+
+                        <li class="nav-item"><a class="nav-link" href="/home/about" id="about">Hakkımızda</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="/home/contact" id="contact">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="inner-content">
+                        <p>Copyright © 2021 TAÇ Rent a Car Life - <a href="https://api.whatsapp.com/send?phone=@Model.general.tel2&text=Merhaba%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank">Bize Ulaşın</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/tema/vendor/jquery/jquery.min.js"></script>
+    <script src="~/tema/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="~/tema/assets/js/custom.js"></script>
+    <script src="~/tema/assets/js/owl.js"></script>
+   <script>
+       setInterval(function () {
+           if (document.getElementsByClassName("alert").length > 0)
+               document.getElementById("message").remove();
+       }, 2000)
+   </script>
+</body>
+</html>

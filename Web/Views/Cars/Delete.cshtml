@@ -1,0 +1,75 @@
+﻿@model Entity.Car
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>@Model.name adlı aracı silmek istediğinize emin misiniz?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.model)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+        <dd class="col-sm-9">
+            <img src="~/tema/assets/images/@Model.image" alt="" class="mt-3">
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.km)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.km)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.weekly_price)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.weekly_price)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.daily_price)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.daily_price)
+        </dd>
+      
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.type)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Anasayfa)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Anasayfa)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.category.name)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Geri Dön</a>
+    </form>
+</div>

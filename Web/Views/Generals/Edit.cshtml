@@ -1,0 +1,77 @@
+﻿@model Entity.General
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success mb-5" id="message" style="text-align:center">@TempData["success"]</div>
+}
+<h1>Genel Bilgiler</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <textarea asp-for="description" class="form-control" id="editor"></textarea>
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="aboutOffice" class="control-label"></label>
+                <textarea asp-for="aboutOffice" class="form-control"></textarea>
+                <span asp-validation-for="aboutOffice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tel1" class="control-label"></label>
+                <input asp-for="tel1" class="form-control" />
+                <span asp-validation-for="tel1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tel2" class="control-label"></label>
+                <input asp-for="tel2" class="form-control" />
+                <span asp-validation-for="tel2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="adress" class="control-label"></label>
+                <input asp-for="adress" class="form-control" />
+                <span asp-validation-for="adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Maps" class="control-label"></label>
+                <input asp-for="Maps" class="form-control" />
+                <span asp-validation-for="Maps" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="provizyon_desc" class="control-label"></label>
+                <textarea asp-for="provizyon_desc" class="form-control" id="editor2"></textarea>
+                <span asp-validation-for="provizyon_desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor');
+    CKEDITOR.replace('editor2');
+
+</script>
+

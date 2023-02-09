@@ -1,0 +1,26 @@
+﻿@model Entity.Message
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h2>@Model.name Diyor ki</h2>
+    <hr />
+    <p>@Model.content</p>
+    <p style="text-align:end;">@Model.date</p>
+    <div class="row">
+        <div class="col-md-6">
+            <hr />
+            <h4>İletişim Bilgileri</h4>
+            <p><small>E-mail: </small>  @Model.mail</p>
+            <p><small>Telefon: </small>  @Model.phone</p>
+
+        </div>
+    </div>
+
+</div>
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>

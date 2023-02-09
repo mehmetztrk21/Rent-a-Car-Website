@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Araba kiralama fırsatlarını karşılaştırın ve dünya çapında 60000 konumdan fazlasında en ucuz fiyatları bulun. Dünyanın en büyük online araba kiralama hizmetiyle bugün online rezervasyon yapın. Lüks, ekonomik ve aile için araba kiralamalarında tasarruf edin." />
+    <meta name="keywords" content="Kiralık Araba, araba kiralama, araç kiralama, oto kiralama, rent a car, kirallık araba, kiralık araç, kiralık oto, rentalcars, rental cars" />
+    <title>Yönetici Paneli</title>
+    <link rel="icon" href="~/tema/assets/images/icon.ico">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Generals" asp-action="Edit" asp-route-id="1">Ana Sayfa</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Generals" asp-action="Edit" asp-route-id="1">Genel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Araçlar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Categories" asp-action="Index">Markalar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Comments" asp-action="Index">Müşteri Yorumları</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Messages" asp-action="Index">Mesajlar</a>
+                        </li>
+                        <li class="nav-item ml-auto" >
+                            <a class="nav-link text-dark" asp-controller="Account" asp-action="LogOut">Çıkış Yap <i class="fas fa-sign-out-alt"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Web - <a href="#">Rent a Car</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        setInterval(function () {
+            if (document.getElementsByClassName("alert").length > 0)
+                document.getElementById("message").remove();
+        }, 2000)
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

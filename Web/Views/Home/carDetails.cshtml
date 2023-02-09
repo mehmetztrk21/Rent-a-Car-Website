@@ -1,0 +1,142 @@
+﻿@model CarDetailsModel
+@{
+    Layout = "_HomeLayout";
+}
+<!-- Page Content -->
+<div class="page-heading about-heading header-text" style="background-image: url(~/tema/assets/images/heading-6-1920x500.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h2>@Model.car.name - @Model.car.model</h2>
+                    <h4><i class="fas fa-lira-sign"></i><strong> @Model.car.weekly_price </strong><small>/ Hafta</small></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <img src="~/tema/assets/images/@Model.car.image" width="740" alt="" class="img-fluid wc-image">
+                </div>
+                <hr />
+
+                <div>
+                    <span>Günlük: @Model.car.daily_price <i class="fas fa-lira-sign"></i></span>
+                    <hr />
+                    <span>Haftalık: @Model.car.weekly_price <i class="fas fa-lira-sign"></i></span>
+                    <hr />
+                    <span>@Model.car.type Araç</span>
+                </div>
+
+                <!--
+    <div class="row">
+        <div class="col-sm-4 col-6">
+            <div>
+                <img src="~/tema/assets/images/product-1-370x270.jpg" alt="" class="img-fluid">
+            </div>
+            <br>
+        </div>
+        <div class="col-sm-4 col-6">
+            <div>
+                <img src="~/tema/assets/images/product-2-370x270.jpg" alt="" class="img-fluid">
+            </div>
+            <br>
+        </div>
+        <div class="col-sm-4 col-6">
+            <div>
+                <img src="~/tema/assets/images/product-3-370x270.jpg" alt="" class="img-fluid">
+            </div>
+            <br>
+        </div>
+
+        <div class="col-sm-4 col-6">
+            <div>
+                <img src="~/tema/assets/images/product-4-370x270.jpg" alt="" class="img-fluid">
+            </div>
+            <br>
+        </div>
+        <div class="col-sm-4 col-6">
+            <div>
+                <img src="~/tema/assets/images/product-5-370x270.jpg" alt="" class="img-fluid">
+            </div>
+            <br>
+        </div>
+        <div class="col-sm-4 col-6">
+            <div>
+                <img src="~/tema/assets/images/product-6-370x270.jpg" alt="" class="img-fluid">
+            </div>
+            <br>
+        </div>
+    </div>
+        -->
+            </div>
+
+            <div class="col-md-6">
+                <h2>@Model.car.name</h2>
+                <hr />
+                   @Html.Raw(Model.car.description)
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="section-heading">
+                    <h2>Detaylı Bilgi ve Rezervasyon için</h2>
+                </div>
+
+                <div class="left-content">
+                    <p>
+                        <span>İsim</span>
+
+                        <br>
+
+                        <strong>Lale Solmaz</strong>
+                    </p>
+
+                    <p>
+                        <span>Telefon</span>
+
+                        <br>
+
+                        <strong>
+                            <a href="tel:@Model.general.tel1">@Model.general.tel1</a>
+                        </strong>
+                    </p>
+
+                    <p>
+                        <span>WhatsApp Hattı</span>
+
+                        <br>
+
+                        <strong>
+                            <a href="https://api.whatsapp.com/send?phone=@Model.general.tel2&text=@Model.car.name%20hakkında%20bilgi%20almak%20istiyorum." target="_blank">@Model.general.tel2</a>
+                        </strong>
+                    </p>
+
+                    <p>
+                        <span>Email</span>
+
+                        <br>
+
+                        <strong>
+                            <a href="mailto:@Model.general.email">@Model.general.email</a>
+                        </strong>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="~/tema/assets/images/woman.png" class="img-fluid mt-5" alt=""  style="height:60%;">
+            </div>
+        </div>
+    </div>
+</div>
